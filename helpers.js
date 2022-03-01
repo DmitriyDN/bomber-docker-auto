@@ -42,7 +42,7 @@ const logStatistics = (args) => {
       console.log(`newlyLaunched: ${launched}`);
       console.log(`stopped: ${stopped}`);
       console.log(`areNotAvailable: ${areNotAvailable}`);
-      console.log(`Next attempt in ${config.timeout / 1000 / 60} minutes`);
+      console.log(`Next attempt in ${getRetryTimeout() / 1000 / 60} minutes`);
       renderContainers();
     }, 3000);
   }
@@ -69,6 +69,10 @@ const chunking = (urls) => {
     return chunks;
 }
 
+const getRetryTimeout = () => {
+  return config.running ? config.timeout : 1000 * 30;
+}
+
 module.exports = {
     warningLog,
     successLog,
@@ -77,5 +81,6 @@ module.exports = {
     renderContainers,
     logStatistics,
     setRunning,
-    chunking
+    chunking,
+    getRetryTimeout
 };

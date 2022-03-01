@@ -4,6 +4,7 @@ const {
   errorLog,
   logStatistics,
   chunking,
+  getRetryTimeout,
 } = require("./helpers");
 
 const config = require("./config");
@@ -78,7 +79,7 @@ const retry = async () => {
         }
       }
       setTimeout(() => {
-          resolve(true);
+        resolve(true);
       }, 2000);
     });
   };
@@ -87,7 +88,7 @@ const retry = async () => {
   for (const chunk of chunksUrls) {
     await runImages(chunk);
   }
-  setTimeout(retry, config.running ? config.timeout : 1000 * 30);
+  setTimeout(retry, getRetryTimeout());
 };
 
 retry();
