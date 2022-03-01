@@ -87,7 +87,7 @@ const retry = async () => {
   for (const chunk of chunksUrls) {
     await runImages(chunk);
   }
-  setTimeout(retry, config.timeout);
+  setTimeout(retry, config.running ? config.timeout : 1000 * 30);
 };
 
 retry();
