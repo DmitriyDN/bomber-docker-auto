@@ -34,7 +34,7 @@ const retry = async () => {
       for (const url of chunk) {
         if (url) {
           exec(
-            `. ${__dirname}/bombardier-one.sh ${url} ${containersLimit}`,
+            `sh ${__dirname}/bombardier-one.sh ${url} ${containersLimit}`,
             (error, stdout, stderr) => {
               proceeded++;
 
