@@ -47,7 +47,11 @@ ________________________________________________________________________________
 8. Turn on VPN
 9. Run via command ```node ./retry.js``` in any cmd
 
-It is necessary to setup bash for windows.
+It is necessary to setup bash for windows. For instance [git bash should be somewhere here](https://git-scm.com/downloads). And the app can be laucnehd from git bash. if main script doesn't work you can try launch attack manually
+
+```
+    sh ./bombardier-multi.sh 5
+```
 ## Troubleshouting
 If you receive something like
 ```
