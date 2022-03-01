@@ -10,7 +10,8 @@
 5. Виставити адреси для атаки у файлі ```urls.json```
 6. Виставити ліміт максимальної кількості докер контейнерів ```containersLimit``` у  ```retry.js```
 7. Виставити ```timeout``` змінну у ```config.js```. Це виставляє через скільки перевіряти статуси сайтів та каоібрувати імеджі в автоматичному режимі
-8. Запустити додаток за допомогою комани у терміналі ```node ./retry.js```. Викликати з папки додатку.
+8. Увімкнути ВПН
+9. Запустити додаток за допомогою комани у терміналі ```node ./retry.js```. Викликати з папки додатку.
 
 ## Можливі помилки
 Якщо Ви бачите наступне
@@ -41,7 +42,8 @@ ________________________________________________________________________________
 5. Set urls in ```urls.json``` file
 6. Set ```containersLimit``` variable in retry.js
 7. Set ```timeout``` variable in config.js. This sets timeout to check the list of websites and relaunch app
-8. Run via command ```node ./retry.js``` in any cmd
+8. Turn on VPN
+9. Run via command ```node ./retry.js``` in any cmd
 
 ## Troubleshouting
 If you receive something like
