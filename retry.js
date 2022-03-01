@@ -9,7 +9,7 @@ const {
 const config = require("./config");
 const { exec } = require("child_process");
 
-const containersLimit = 5;
+const containersLimit = 10;
 
 const stoppedStr = "has been stopped";
 const launchedStr = "has been launched";
