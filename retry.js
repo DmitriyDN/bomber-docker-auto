@@ -10,8 +10,6 @@ const {
 const config = require("./config");
 const { exec } = require("child_process");
 
-const containersLimit = 10;
-
 const stoppedStr = "has been stopped";
 const launchedStr = "has been launched";
 
@@ -35,7 +33,7 @@ const retry = async () => {
       for (const url of chunk) {
         if (url) {
           exec(
-            `sh ${__dirname}/bombardier-one.sh ${url} ${containersLimit}`,
+            `sh ${__dirname}/bombardier-one.sh ${url} ${config.containersLimit}`,
             (error, stdout, stderr) => {
               proceeded++;
 

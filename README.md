@@ -8,7 +8,7 @@
 3. Встановити [nodeJS](https://nodejs.org/en/download/)
 4. Запустити докер
 5. Виставити адреси для атаки у файлі ```urls.json```
-6. Виставити ліміт максимальної кількості докер контейнерів ```containersLimit``` у  ```retry.js```
+6. Виставити ліміт максимальної кількості докер контейнерів ```containersLimit``` у  ```config.js```
 7. Виставити ```timeout``` змінну у ```config.js```. Це виставляє через скільки перевіряти статуси сайтів та каоібрувати імеджі в автоматичному режимі
 8. Увімкнути ВПН
 9. Запустити додаток за допомогою комани у терміналі ```node ./retry.js```. Викликати з папки додатку.
@@ -49,8 +49,8 @@ ________________________________________________________________________________
 3. Install [nodeJS](https://nodejs.org/en/download/)
 4. Launch docker
 5. Set urls in ```urls.json``` file
-6. Set ```containersLimit``` variable in retry.js
-7. Set ```timeout``` variable in config.js. This sets timeout to check the list of websites and relaunch app
+6. Set ```containersLimit``` variable in ```config.js```
+7. Set ```timeout``` variable in ```config.js```. This sets timeout to check the list of websites and relaunch app
 8. Turn on VPN
 9. Run via command ```node ./retry.js``` in any cmd
 
