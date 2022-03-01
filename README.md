@@ -13,7 +13,14 @@
 8. Увімкнути ВПН
 9. Запустити додаток за допомогою комани у терміналі ```node ./retry.js```. Викликати з папки додатку.
 
-Для віндоуса треба встановити bash.
+### Для користувачів windows
+Для віндоус треба встановити баш. Наприклад, [git bash має бути десь тут](https://git-scm.com/downloads). Сама аппка (команда 9) має ьути запущена саме з башу.
+
+Якщо основний скріпт не працює, можна спробувати ручний запуск
+
+```
+    sh ./bombardier-multi.sh 5
+```
 
 ## Можливі помилки
 Якщо Ви бачите наступне
@@ -47,7 +54,8 @@ ________________________________________________________________________________
 8. Turn on VPN
 9. Run via command ```node ./retry.js``` in any cmd
 
-It is necessary to setup bash for windows. For instance [git bash should be somewhere here](https://git-scm.com/downloads). And the app can be laucnehd from git bash. if main script doesn't work you can try launch attack manually
+### For windows users
+It is necessary to setup bash for windows. For instance, [git bash should be somewhere here](https://git-scm.com/downloads). And the app can be laucnehd from git bash. If main script doesn't work you can try launch attack manually
 
 ```
     sh ./bombardier-multi.sh 5
