@@ -13,6 +13,8 @@
 8. Увімкнути ВПН
 9. Запустити додаток за допомогою комани у терміналі ```node ./retry.js```. Викликати з папки додатку.
 
+Для віндоуса треба встановити bash.
+
 ## Можливі помилки
 Якщо Ви бачите наступне
 ```
@@ -45,6 +47,7 @@ ________________________________________________________________________________
 8. Turn on VPN
 9. Run via command ```node ./retry.js``` in any cmd
 
+It is necessary to setup bash for windows.
 ## Troubleshouting
 If you receive something like
 ```
