@@ -28,7 +28,7 @@ echo "$site_status"
 if (($status_code != 0 && $status_code <= 400)); then
   if [[ "$containers" != *"$container_name"* ]];
   then
-    if [[ "$containersLimit" -lt "$runningContainers" ]];
+    if [[ "$runningContainers" -lt "$containersLimit" ]];
     then
       docker run --name=$container_name -ti -d --rm alpine/bombardier -c $BOMBARDIER_CONNECTIONS -d $BOMBARDIER_TIMEOUT -l $site
       echo "$container_name has been launched"
