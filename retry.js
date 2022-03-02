@@ -5,6 +5,7 @@ const {
   logStatistics,
   chunking,
   getRetryTimeout,
+  setRunningAsync
 } = require("./helpers");
 
 const config = require("./config");
