@@ -59,6 +59,20 @@ const setRunning = () => {
   });
 };
 
+const setRunningAsync = () => {
+  return new Promise((resolve, reject) => {
+    exec("docker ps -q | wc -l", (error, stdout, stderr) => {
+      if (!error && !stderr && stdout) {
+        const num = Number(stdout.toString().trim());
+        if (!isNaN(num)) {
+          config.running = num;
+        }
+      }
+      resolve(true);
+    });
+  });
+};
+
 const chunking = (urls) => {
     const chunks = [];
     const tempUrls = [...urls];
@@ -82,5 +96,6 @@ module.exports = {
     logStatistics,
     setRunning,
     chunking,
-    getRetryTimeout
+    getRetryTimeout,
+    setRunningAsync
 };
