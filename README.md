@@ -8,10 +8,10 @@
 3. Встановити [nodeJS](https://nodejs.org/en/download/)
 4. Запустити докер
 5. Виставити адреси для атаки у файлі ```urls.json```
-6. Виставити ліміт максимальної кількості докер контейнерів ```containersLimit``` у  ```config.js```
-7. Виставити ```timeout``` змінну у ```config.js```. Це виставляє через скільки перевіряти статуси сайтів та каоібрувати імеджі в автоматичному режимі
+6. Виставити ліміт максимальної кількості докер контейнерів ```containersLimit``` у  ```start.sh```
+7. Виставити ```timeout``` змінну у ```start.sh```. Це виставляє через скільки перевіряти статуси сайтів та каоібрувати імеджі в автоматичному режимі
 8. Увімкнути ВПН
-9. Запустити додаток за допомогою комани у терміналі ```node ./retry.js```. Викликати з папки додатку.
+9. Запустити додаток за допомогою комани у терміналі ```sh ./start.sh```. Викликати з папки додатку.
 
 ### Для користувачів windows
 Для віндоус треба встановити баш. Наприклад, [git bash має бути десь тут](https://git-scm.com/downloads). Сама аппка (команда 9) має ьути запущена саме з башу.
@@ -49,10 +49,10 @@ ________________________________________________________________________________
 3. Install [nodeJS](https://nodejs.org/en/download/)
 4. Launch docker
 5. Set urls in ```urls.json``` file
-6. Set ```containersLimit``` variable in ```config.js```
-7. Set ```timeout``` variable in ```config.js```. This sets timeout to check the list of websites and relaunch app
+6. Set ```MAX_CONTAINERS``` variable in ```start.sh```
+7. Set ```TIMEOUT``` variable in ```start.sh```. This sets timeout to check the list of websites and relaunch app
 8. Turn on VPN
-9. Run via command ```node ./retry.js``` in any cmd
+9. Run via command ```sh ./start.sh``` in any cmd
 
 ### For windows users
 It is necessary to setup bash for windows. For instance, [git bash should be somewhere here](https://git-scm.com/downloads). And the app can be laucnehd from git bash. If main script doesn't work you can try launch attack manually
