@@ -11,6 +11,8 @@ const {
 const config = require("./config");
 const { exec } = require("child_process");
 
+console.log(config);
+ 
 const stoppedStr = "has been stopped";
 const launchedStr = "has been launched";
 
