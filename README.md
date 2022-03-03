@@ -2,8 +2,8 @@
 1. Встановити докер [docker](https://www.docker.com/products/docker-desktop)
 2. Для Лінукса/Mac виставити можливість запуску без sudo. [Ось гарний мануал як ставити докер і прибрати суда](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04)
 ```
-    sudo usermod -aG docker ${USER}
-    su - ${USER}
+sudo usermod -aG docker ${USER}
+su - ${USER}
 ```
 3. Встановити [nodeJS](https://nodejs.org/en/download/)
 4. Запустити докер
@@ -19,7 +19,7 @@
 Якщо основний скріпт не працює, можна спробувати ручний запуск
 
 ```
-    sh ./bombardier-multi.sh 5
+sh ./bombardier-multi.sh 5
 ```
 
 ## Можливі помилки
@@ -33,7 +33,7 @@ stderr: /bin/sh: 12: /bombardier-one.sh: [[: not found
 Скоріше за все у вас використовужться dash замість bash і [[ ]]умова з даш не працює. Можна виставити використання баша і має запрацювати
 
 ```
-    sudo dpkg-reconfigure dash
+sudo dpkg-reconfigure dash
 ```
 ________________________________________________________________________________________________________________________________
 ## Manual
@@ -42,8 +42,8 @@ ________________________________________________________________________________
 2. For Linux/Mac give ability launch docker without sudo. [Good manual to install docker for linux ](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04).
 
 ```
-    sudo usermod -aG docker ${USER}
-    su - ${USER}
+sudo usermod -aG docker ${USER}
+su - ${USER}
 ```
 
 3. Install [nodeJS](https://nodejs.org/en/download/)
@@ -58,7 +58,7 @@ ________________________________________________________________________________
 It is necessary to setup bash for windows. For instance, [git bash should be somewhere here](https://git-scm.com/downloads). And the app can be laucnehd from git bash. If main script doesn't work you can try launch attack manually
 
 ```
-    sh ./bombardier-multi.sh 5
+sh ./bombardier-multi.sh 5
 ```
 ## Troubleshouting
 If you receive something like
@@ -71,5 +71,5 @@ stderr: /bin/sh: 12: /bombardier-one.sh: [[: not found
 Most likely you use dash instead of bash and [[ ]] condition is unknown for it. You can set usage of bash via
 
 ```
-    sudo dpkg-reconfigure dash
+sudo dpkg-reconfigure dash
 ```
